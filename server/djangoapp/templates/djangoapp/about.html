@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Dealership Review</title>
-    {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+
 </head>
 
     <body>
-
     <!--Add a nav bar here -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light mt-3 mb-3">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +33,6 @@
         <ul class="nav navbar-nav navbar-right">
               {% if user.is_authenticated %}
               <li>
-                  <a class="btn btn-link" href="{% url 'djangoapp:add_review' dealer_id %}">Add Review</a>
                   <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
                   <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
               </li>
@@ -47,29 +51,10 @@
               {% endif %}
           </ul>
     </nav>
-    <!-- Add reviews as cards -->
-    <div class="card-deck">
-      {% for review in review_list %}
-            <div class="card">
-              {% if review.sentiment == 'positive' %}
-                <img class="card-img-left" src="{{MEDIA_URL}}/emoji/positive.png" alt="Positive review" width="40" height="40">
-              {% elif review.sentiment == 'negative' %}
-                <img class="card-img-left" src="{{MEDIA_URL}}/emoji/negative.png" alt="Negative review" width="40" height="40">
-              {% elif review.sentiment == 'neutral' %}
-                <img class="card-img-left" src="{{MEDIA_URL}}/emoji/neutral.png" alt="Nutral review" width="40" height="40">
-              {% endif %}
-                <div class="card-body">
-                    {% if review.purchase %}
-                    <label class="card-title bold">{{review.car_make}}</label>
-                    <label class="card-title bold">{{review.car_model}}</label>
-                    <br>
-                    <label class="card-title bold">{{review.car_year}}</label>
-                    {% endif %}
-                    <p class="card-text">{{review.review}}</p>
-                </div>
-            </div>
-      {% endfor %}
-    </div>
+    <!--Add a dealer table here -->
+    <h2>About Us</h2>
+    <p>Welcome to Best Cars dealership, home to the best cars in North America. <br>
+      We sell domestic and imported cars at reasonable prices.</p>
 
     </body>
 
