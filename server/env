@@ -1,0 +1,2 @@
+export IAM_API_KEY="6_2pXXGd5IryCLm19vHYHQ6uVda9ApokS4HczebPRP1_"
+export COUCH_URL="https://295a1bdb-eed3-4cac-8469-b375f596bc73-bluemix.cloudantnosqldb.appdomain.cloud"
