@@ -1,2 +1,5 @@
-export IAM_API_KEY="6_2pXXGd5IryCLm19vHYHQ6uVda9ApokS4HczebPRP1_"
-export COUCH_URL="https://295a1bdb-eed3-4cac-8469-b375f596bc73-bluemix.cloudantnosqldb.appdomain.cloud"
+IAM_API_KEY = "6_2pXXGd5IryCLm19vHYHQ6uVda9ApokS4HczebPRP1_"
+COUCH_URL = "https://295a1bdb-eed3-4cac-8469-b375f596bc73-bluemix.cloudantnosqldb.appdomain.cloud"
+
+API_KEY = "AMk8-XMhrRqse46KZlNYYl44JmH-tb5ohGVOg635GmEJ"
+NLU_URL = "https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/061964dc-db92-42c7-8c67-c43b0da4562c"

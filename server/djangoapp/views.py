@@ -82,7 +82,7 @@ def get_dealerships(request):
     context = {}
     dealership_list = []
     if request.method == "GET":
-        url = ""
+        url = "https://0ef78934.eu-gb.apigw.appdomain.cloud/api/dealership"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         # Concat all dealer's short name
@@ -99,7 +99,7 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
-        url = ""
+        url = "https://0ef78934.eu-gb.apigw.appdomain.cloud/api/dealership"
         # Get dealers from the URL
         dealer_details = get_dealer_reviews_from_cf(url, dealerId=dealer_id)
         # Concat all dealer's short name
@@ -117,30 +117,12 @@ def add_review(request, dealer_id):
     context = {}
     if request.method == 'GET':
         print("GET add_review")
-        #return HttpResponse("GET add_reviews for dealerId %s." % dealer_id)
-        #url = "https://645999e8.us-south.apigw.appdomain.cloud/api/dealership"
-        # Get dealers from the URL
-        #dealerships = get_dealers_from_cf(url)
-        # Concat all dealer's short name
-        #dealer_details_reviews = ' '.join([dealer_detail.sentiment for dealer_detail in dealer_details])
-        #context["dealership_list"] = dealerships
         context["dealer_id"] = dealer_id
         context["cars"] = CarModel.objects.all()
         print(CarModel.objects.all())
-        # Return a list of dealer short name
-        #return HttpResponse(dealer_details_reviews)
         return render(request, 'djangoapp/add_review.html', context)
     elif request.method == 'POST':
         print("POST add_review")
-        #review = {}
-        #user = self.request.user
-        #if user.is_authenticated:
-        #print("authenticated")
-        #set requested data
-        #review['name']= request.POST['name']
-        #review['dealerid'] = dealer_id
-        #review['review'] = request.POST['review']
-
         form = request.POST
         review = {
             "name": "{request.user.first_name} {request.user.last_name}",
@@ -156,11 +138,8 @@ def add_review(request, dealer_id):
             review["car_model"] = car.name
             review["car_year"]= car.year.strftime("%Y")
             #review["purchase"] = "ture"
-
         print(review)
-
-        url="https://645999e8.us-south.apigw.appdomain.cloud/api/review"
-
+        url="https://0ef78934.eu-gb.apigw.appdomain.cloud/api/review"
         json_result = post_request(url, review, dealerId=dealer_id)
         print("---json_result---")
         print(json_result)

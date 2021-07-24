@@ -104,15 +104,15 @@ def get_dealer_reviews_from_cf(url, **kwargs):
 # def analyze_review_sentiments(text):
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
+#def analyze_review_sentiments(text):
+#    return positive
+
 def analyze_review_sentiments(text):
-    return positive
-'''
-def analyze_review_sentiments(text):
-    result = "Not checked"
+    result = "Not Checked"
     print(text)
     try:
-        json_result = get_request(url="https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/6521efe7-d9ad-4487-b0e6-443e6e7e2639/v1/analyze",
-                        api_key="P3iXa9KQMrou-auXaJ034eDh1f4igclRepwmdZ_vsTDP",
+        json_result = get_request(url="https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/061964dc-db92-42c7-8c67-c43b0da4562c/v1/analyze",
+                        api_key="AMk8-XMhrRqse46KZlNYYl44JmH-tb5ohGVOg635GmEJ",
                         version="2021-03-25",
                         features="sentiment",
                         language="en",
@@ -121,5 +121,3 @@ def analyze_review_sentiments(text):
         print(result)
     finally:
         return result
-''''
-
